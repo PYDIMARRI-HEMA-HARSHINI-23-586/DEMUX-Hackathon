@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoWatt - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="images/log1.jpg" alt="EcoWatt Logo" class="small-logo">
+        <h1>EcoWatt - Dashboard</h1>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <div class="options">
+                <button onclick="navigateTo('tutorials')">Tutorials</button>
+                <button onclick="navigateTo('quiz')">Quiz</button>
+            </div>
+        </section>
+        <!-- Back Button to go to the index (first) page -->
+        <button onclick="navigateTo('index')" class="back-btn">Back</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 EcoWatt</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

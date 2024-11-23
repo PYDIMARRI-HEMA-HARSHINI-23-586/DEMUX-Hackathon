@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoWatt - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="images/log1.jpg" alt="EcoWatt Logo" class="small-logo">
+        <h1>EcoWatt - Sign Up</h1>
+    </header>
+
+    <main>
+        <form id="signup-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <button onclick="navigateTo('main.html')" class="back-btn">Back</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 EcoWatt</p>
+    </footer>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (response.ok) {
+                    alert('Sign Up successful');
+                    window.location.href = 'signin.html';
+                } else {
+                    alert('Sign Up failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Sign Up failed');
+            }
+        });
+
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
